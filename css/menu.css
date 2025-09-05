@@ -1,0 +1,20 @@
+.menu_btn{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.menu_btn div{
+    width: 32px;
+    height: 2px;
+    background-color: #fff;
+    transition: all .5s;
+}
+
+.menu_btn:hover div{
+    background-color: #F6AE2D;
+}
+
+.menu_btn div:nth-child(2){
+    width: 16px;
+}
