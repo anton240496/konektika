@@ -2,8 +2,6 @@
     position: relative;
     background-position: center !important;
     background-repeat: no-repeat !important;
-    background-size: cover !important;
-    display: flex;
     /* min-height: 1080px; */
     min-height: 100vh;
     height: 100%;
@@ -27,13 +25,13 @@
 
 
 
-.main_inner {}
+
 
 .header_inner {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* position: absolute; */
+    position: relative;
     padding: 24px 0;
 
 
@@ -110,6 +108,10 @@
     color: #000000
 }
 
+.logo_top {
+    display: none;
+}
+
 /* .sety_link svg g{
  opacity: 1;
 } */
@@ -137,6 +139,17 @@
 }
 
 @media (max-width: 768px) {
+
+    .logo_top {
+        display: block;
+        width: 175px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%)
+    }
+
     .logo_main_p {
         font-size: 9px;
         padding: 2px 0;
@@ -166,7 +179,7 @@
     }
 
     .call_inner,
-    .call_wapper{
+    .call_wapper {
         border: none;
         padding: 0px;
         width: 40px;
@@ -174,4 +187,10 @@
     }
 
 
+}
+
+@media (max-height: 650px) {
+    .body_main {
+        height: 110vh;
+    }
 }
