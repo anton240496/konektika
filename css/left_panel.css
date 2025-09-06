@@ -20,7 +20,7 @@
 
 
 .panel_left {
-    position: absolute;
+    position: fixed;
     height: 100%;
     display: flex;
     justify-content: space-between;

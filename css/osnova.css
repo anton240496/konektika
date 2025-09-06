@@ -20,7 +20,7 @@ body {
   font-weight: 300;
   font-size: 16px;
   line-height: 24px;
-  background-color: #000000;
+  background-color: #000000 !important;
   color: #fff;
   /* overflow: hidden; */
 }
@@ -72,4 +72,23 @@ button {
 button{
   background-color: transparent;
   cursor: pointer;;
+}
+
+@media (max-width: 890px) {
+  .container{
+    padding: 0 76px;
+  }
+}
+
+@media (max-width: 768px) {
+  body{
+    font-size: 14px;
+    line-height: 20px;
+  }
+
+  .title{
+    font-size: 22px;
+    line-height: 28px;
+  }
+
 }

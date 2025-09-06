@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Анимированные счетчики</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+   
+</head>
+<body>
+    <section class="top-section">
+        <div class="top-content">
+            <h2>Добро пожаловать на наш сайт</h2>
+            <p>Мы - динамично развивающаяся компания с многолетним опытом работы. Узнайте больше о наших достижениях и успехах.</p>
+            <a href="#counters" class="scroll-button">Наши показатели <i class="fas fa-arrow-down"></i></a>
+        </div>
+    </section>
+
+    <div class="container" id="counters">
+        <h1>Наши достижения</h1>
+        <div class="counters">
+            <div class="counter-box">
+                <div class="icon">📅</div>
+                <span class="founded-year">2017</span>
+                <span class="counter" id="years-counter">0</span>
+                <p class="counter-text">лет компании</p>
+            </div>
+            <div class="counter-box">
+                <div class="icon">🚀</div>
+                <span class="counter" data-target="237">0</span>
+                <p class="counter-text">успешных проектов</p>
+            </div>
+            <div class="counter-box">
+                <div class="icon">👥</div>
+                <span class="counter" data-target="50">0</span>
+                <p class="counter-text">профессионалов</p>
+            </div>
+        </div>
+        <div class="loading-bar"></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const counters = document.querySelectorAll('.counter');
+            const duration = 5000;
+            const frameRate = 60;
+            const totalFrames = Math.round(duration / (1000 / frameRate));
+            
+            // Вычисляем количество лет компании
+            const foundedYearElement = document.querySelector('.founded-year');
+            const foundedYear = parseInt(foundedYearElement.textContent);
+            const currentYear = new Date().getFullYear();
+            const yearsInBusiness = currentYear - foundedYear;
+            
+            // Устанавливаем вычисленное значение как data-target для первого счетчика
+            document.getElementById('years-counter').setAttribute('data-target', yearsInBusiness);
+            
+            // Флаг для отслеживания, была ли уже запущена анимация
+            let animationStarted = false;
+            
+            // Функция для запуска анимации счетчиков
+            function startCountersAnimation() {
+                if (animationStarted) return;
+                animationStarted = true;
+                
+                // Запускаем анимацию полосы загрузки
+                document.querySelector('.loading-bar').style.width = '100%';
+                
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / totalFrames;
+                    let frame = 0;
+                    
+                    function updateCounter() {
+                        if (frame < totalFrames) {
+                            current += increment;
+                            counter.innerText = Math.round(current);
+                            frame++;
+                            requestAnimationFrame(updateCounter);
+                        } else {
+                            counter.innerText = target;
+                        }
+                    }
+                    
+                    setTimeout(updateCounter, 300);
+                });
+            }
+            
+            // Запуск анимации при загрузке, если блок уже виден
+            function checkVisibility() {
+                const countersSection = document.getElementById('counters');
+                const rect = countersSection.getBoundingClientRect();
+                const elemTop = rect.top;
+                const elemBottom = rect.bottom;
+                
+                // Элемент виден, если он находится в пределах viewport
+                const isVisible = (elemTop >= 0) && (elemBottom <= window.innerHeight);
+                return isVisible;
+            }
+            
+            // Запускаем анимацию при загрузке, если блок виден
+            if (checkVisibility()) {
+                startCountersAnimation();
+            }
+            
+            // Запуск анимации при скролле
+            window.addEventListener('scroll', function() {
+                if (checkVisibility() && !animationStarted) {
+                    startCountersAnimation();
+                }
+            });
+            
+            // Плавная прокрутка для кнопки
+            document.querySelector('.scroll-button').addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetSection = document.querySelector(targetId);
+                
+                window.scrollTo({
+                    top: targetSection.offsetTop - 20,
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
