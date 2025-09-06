@@ -76,7 +76,7 @@
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%);
 }
 
 .call_inner {
@@ -146,11 +146,13 @@
     gap: 12px;
     padding-bottom: 48px;
     align-items: center;
+    position: relative;
 }
 
 .main_text {
     margin: 48px 0;
 }
+
 
 .arrow {
     display: flex;
@@ -222,6 +224,8 @@
     height: 100vh;
     padding-left: 24px;
     border-left: 1px solid #FFFFFF33;
+    gap: 30px;
+    width: 384px;
 }
 
 .teg_title {
@@ -281,6 +285,7 @@
         padding-left: 0px;
         gap: 75px;
         height: auto;
+        width: auto;
     }
 
 
@@ -405,7 +410,7 @@
 
 @media (max-width: 440px) {
 
-    .container{
+    .container {
         padding-right: 20px;
     }
 
