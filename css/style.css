@@ -52,7 +52,7 @@
     border-bottom: 1px solid #FFFFFF33;
 }
 
-.founded-year{
+.founded-year {
     display: none;
 }
 
@@ -179,11 +179,11 @@
     margin-top: 48px;
 }
 
-.opisanie_text span {
+.text span {
     color: #F6AE2D;
 }
 
-.about {
+.section {
     background-position: center !important;
     background-repeat: no-repeat !important;
     background-size: 100% 100% !important;
@@ -210,6 +210,27 @@
 .about_cifra_in {
     color: #F6AE2D;
 
+}
+
+
+
+.teg {
+    display: flex;
+    flex-direction: column;
+    gap: 144px;
+    padding-left: 24px;
+    border-left: 1px solid #FFFFFF33;
+    padding-top: 48px;
+    padding-bottom: 48px;
+}
+
+.teg_title {
+    font-size: 24px;
+    line-height: 36px;
+}
+
+.teg_text {
+    color: rgba(255, 255, 255, .4);
 }
 
 
@@ -241,15 +262,31 @@
         font-size: 22px;
     }
 
-    .main_innner{
-     flex-direction: column;
-     margin-right: 0px;
+    .main_innner {
+        flex-direction: column;
+        margin-right: 0px;
     }
 
-    .about_cifra{
+    .about_cifra {
         flex-direction: row;
         flex-wrap: wrap;
         margin-right: 20%;
+    }
+
+    .teg {
+        flex-direction: row;
+        flex-wrap: wrap;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.2);
+        padding-left: 0px;
+        gap: 75px;
+    }
+
+
+
+    .teg_item {
+        width: 40%;
+        word-break: break-all;
     }
 }
 
@@ -260,6 +297,7 @@
 }
 
 @media (max-width: 890px) {
+
 
     .logo_top {
         top: 50%;
@@ -288,14 +326,31 @@
         display: none;
     }
 
-    .about_cifra{
+    .about_cifra {
         width: 100%;
         margin-right: 0px;
         flex-direction: column;
     }
 
-    .about_item{
+    .about_item {
         width: 100%;
+    }
+
+    .teg {
+        flex-direction: column;
+        gap: 32px;
+        padding: 32px 0;
+    }
+
+
+    .teg_item {
+        width: 100%;
+        word-break: normal;
+    }
+
+    .teg_title {
+        font-size: 18px;
+        line-height: 24px;
     }
 }
 
@@ -322,27 +377,40 @@
         height: 40px;
     }
 
-    .main_text{
+    .main_text {
         margin: 32px 0;
     }
-    .opisanie_text{
+
+    .opisanie_text {
         margin-top: 32px;
     }
 
-    .main_innner{
+    .main_innner {
         padding-top: 32px;
         gap: 32px;
     }
 
-    .about_cifra{
+    .about_cifra {
         gap: 16px;
     }
 
-    .about_item{
+    .about_item {
         gap: 8px;
         height: 124px;
     }
 
+
+}
+
+@media (max-width: 440px) {
+
+    .container{
+        padding-right: 20px;
+    }
+
+    .title {
+        word-break: break-all;
+    }
 
 }
 
