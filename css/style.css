@@ -144,6 +144,7 @@
     margin-right: 352px;
     padding-right: 24px;
     gap: 12px;
+    padding-bottom: 48px;
     align-items: center;
 }
 
@@ -217,11 +218,10 @@
 .teg {
     display: flex;
     flex-direction: column;
-    gap: 144px;
+    justify-content: space-around;
+    height: 100vh;
     padding-left: 24px;
     border-left: 1px solid #FFFFFF33;
-    padding-top: 48px;
-    padding-bottom: 48px;
 }
 
 .teg_title {
@@ -280,13 +280,13 @@
         border-top: 1px solid rgba(255, 255, 255, 0.2);
         padding-left: 0px;
         gap: 75px;
+        height: auto;
     }
 
 
 
     .teg_item {
         width: 40%;
-        word-break: break-all;
     }
 }
 
@@ -387,6 +387,7 @@
 
     .main_innner {
         padding-top: 32px;
+        padding-bottom: 32px;
         gap: 32px;
     }
 
