@@ -1,4 +1,4 @@
-.logo_top.logo_open{
+.logo_top.logo_open {
     display: block;
     width: 175px;
     position: absolute;
@@ -141,14 +141,14 @@
 @media (max-width: 890px) {
 
     .menu_nav {
-        top: 10%;
+        top: 72px;
         left: -100%;
     }
 
     .menu_nav.open {
         left: 50%;
-        top: 10%;
-      
+        top: 72px;
+
     }
 
     .menu_list {
