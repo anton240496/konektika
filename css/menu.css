@@ -141,13 +141,13 @@
 @media (max-width: 890px) {
 
     .menu_nav {
-        top: 72px;
+        top: 65px;
         left: -100%;
     }
 
     .menu_nav.open {
         left: 50%;
-        top: 72px;
+        top: 65px;
 
     }
 
