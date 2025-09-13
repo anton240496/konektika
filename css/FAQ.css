@@ -1,0 +1,14 @@
+.FAQ_contact {
+    margin-top: 48px;
+    display: flex;
+    gap: 48px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+@media (max-width: 890px) {
+    .FAQ_contact {
+        flex-direction: column;
+        text-align: center;
+    }
+}

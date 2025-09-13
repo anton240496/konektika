@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="eng">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>design</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/slick.css">
+    <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" /> -->
+    <link rel="stylesheet" href="css/left_panel.css">
+    <!-- <link rel="stylesheet" href="css/menu.css"> -->
+    <link rel="stylesheet" href="css/osnova.css">
+    <link rel="stylesheet" href="css/popup.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: #333;
+        }
+
+        .teg_text{
+            color: #667eea;
+        }
+
+        html,
+        body {
+            height: 100%;
+            font-family: 'Arial', sans-serif;
+            overflow-x: hidden;
+        }
+
+        .slider-container {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            background: #f0f0f0;
+            padding: 40px 0;
+        }
+
+        .vertical-slider {
+            width: 80%;
+            max-width: 800px;
+            height: auto;
+        }
+
+        .slide {
+            background: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin: 15px 0;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            border: 2px solid #e0e0e0;
+            transition: all 0.3s ease;
+            height: auto !important;
+        }
+
+        /* Автоматическая высота по контенту */
+        .slide-content {
+            height: auto;
+            min-height: 100px;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .slide-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .slide-text {
+            font-size: 1rem;
+            line-height: 1.6;
+            color: #666;
+        }
+
+        /* Активный слайд */
+        .slick-center .slide {
+            transform: scale(1.02);
+            border-color: #667eea;
+            box-shadow: 0 8px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        /* Стрелки */
+        .slick-prev,
+        .slick-next {
+            width: 50px;
+            height: 50px;
+            z-index: 100;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .slick-prev {
+            right: 0;
+            transform: rotate(90deg);
+        }
+
+        .slick-next {
+            right: -60px;
+            transform: rotate(90deg);
+        }
+
+        .slick-prev:before,
+        .slick-next:before {
+            font-size: 20px;
+            color: #667eea;
+            opacity: 0.8;
+        }
+
+        .slick-prev:hover,
+        .slick-next:hover {
+            background: #667eea;
+        }
+
+        .slick-prev:hover:before,
+        .slick-next:hover:before {
+            color: white;
+            opacity: 1;
+        }
+
+        /* Точки */
+        .slick-dots {
+            bottom: -40px;
+        }
+
+        .slick-dots li button:before {
+            font-size: 12px;
+            color: #667eea;
+        }
+
+        .slick-dots li.slick-active button:before {
+            color: #667eea;
+        }
+
+        /* Адаптивность */
+        @media (max-width: 768px) {
+            .vertical-slider {
+                width: 90%;
+            }
+
+            .slick-prev {
+                left: -40px;
+            }
+
+            .slick-next {
+                right: -40px;
+            }
+
+            .slide {
+                padding: 20px;
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .vertical-slider {
+                width: 95%;
+            }
+
+            .slick-prev,
+            .slick-next {
+                width: 40px;
+                height: 40px;
+            }
+
+            .slick-prev {
+                left: -30px;
+            }
+
+            .slick-next {
+                right: -30px;
+            }
+        }
+
+        /* Инструкция */
+        .instructions {
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(102, 126, 234, 0.9);
+            color: white;
+            padding: 10px 20px;
+            border-radius: 25px;
+            font-size: 14px;
+            z-index: 1000;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="instructions">
+        ↑ ↓ Управление стрелками | Колесо мыши | Клавиши ← →
+    </div>
+
+    <div class="slider-container">
+                                <ul class="vertical-slider">
+                                    <!-- Слайд 1 -->
+                                    <li class="slide">
+                                        <a href="GraficDesign.html">
+                                            <h3 class="design_teg_title teg_title title">Графический дизайн</h3>
+                                            <p class="design_teg_text teg_text">Фирменный стиль, логотипы, презентации
+                                            </p>
+                                        </a>
+                                    </li>
+
+                                    <!-- Слайд 2 -->
+                                    <li class="slide">
+                                        <a href="DesineWeb.html">
+                                            <h3 class="design_teg_title teg_title title">Дизайн сайтов</h3>
+                                            <p class="design_teg_text teg_text">От лендингов до корпоративных ресурсов
+                                            </p>
+                                        </a>
+                                    </li>
+
+                                    <!-- Слайд 3 -->
+                                    <li class="slide">
+                                        <a href="Printing.html">
+                                            <h3 class="design_teg_title teg_title title">Полиграфия</h3>
+                                            <p class="design_teg_text teg_text">Визитки, буклеты, каталоги, упаковка
+                                            </p>
+                                        </a>
+                                    </li>
+
+                                    <!-- Слайд 4 -->
+                                    <li class="slide">
+                                        <a href="Transport.html">
+                                            <h3 class="design_teg_title teg_title title">Брендинг транспорта</h3>
+                                            <p class="design_teg_text teg_text">Оформление авто, фирменная графика</p>
+                                        </a>
+                                    </li>
+
+                    
+                                    <!-- <li class="slide">
+                                        <a href="Signboards.html">
+                                            <h3 class="design_teg_title teg_title title">Вывески и фасады</h3>
+                                            <p class="design_teg_text teg_text">Лайтбоксы, неон, объемные буквы</p>
+                                        </a>
+                                    </li>
+
+                                    <li class="slide">
+                                        <a href="Pakage.html">
+                                            <h3 class="design_teg_title teg_title title">Упаковка и этикетка</h3>
+                                            <p class="design_teg_text teg_text">Дизайн для ритейла и HoReCa
+                                            </p>
+                                        </a>
+                                    </li>
+
+                                    <li class="slide">
+                                        <a href="ProductDesign.html">
+                                            <h3 class="design_teg_title teg_title title">Продуктовый дизайн</h3>
+                                            <p class="design_teg_text teg_text">Разработка UI/UX, мобильные приложения
+                                            </p>
+                                        </a>
+                                    </li> -->
+                                </ul>
+                            </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.vertical-slider').slick({
+                vertical: true,
+                verticalSwiping: true,
+                slidesToShow: 7,
+                slidesToScroll: 1,
+                infinite: true,
+                speed: 400,
+                autoplay: false,
+                // dots: true,
+                arrows: true,
+                centerMode: true,
+                centerPadding: '0',
+                focusOnSelect: true,
+                adaptiveHeight: true, // Автоподстройка высоты
+
+                // Настройки для равных отступов
+                // responsive: [
+                //     {
+                //         breakpoint: 1200,
+                //         settings: {
+                //             slidesToShow: 3,
+                //             centerMode: true
+                //         }
+                //     },
+                //     {
+                //         breakpoint: 992,
+                //         settings: {
+                //             slidesToShow: 2,
+                //             centerMode: true
+                //         }
+                //     },
+                //     {
+                //         breakpoint: 768,
+                //         settings: {
+                //             slidesToShow: 1,
+                //             centerMode: true
+                //         }
+                //     }
+                // ]
+            });
+
+            // Управление клавиатурой
+            $(document).on('keydown', function (e) {
+                switch (e.key) {
+                    case 'ArrowUp':
+                    case 'ArrowLeft':
+                        $('.vertical-slider').slick('slickPrev');
+                        break;
+                    case 'ArrowDown':
+                    case 'ArrowRight':
+                        $('.vertical-slider').slick('slickNext');
+                        break;
+                }
+            });
+
+            // Прокрутка колесом мыши
+            $('.vertical-slider').on('wheel', function (e) {
+                e.preventDefault();
+                if (e.originalEvent.deltaY < 0) {
+                    $(this).slick('slickPrev');
+                } else {
+                    $(this).slick('slickNext');
+                }
+            });
+
+            // Автоподстройка высоты при изменении контента
+            $(window).on('resize', function () {
+                $('.vertical-slider').slick('resize');
+            });
+        });
+    </script>
+</body>
+
+</html>
