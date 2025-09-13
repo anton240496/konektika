@@ -170,26 +170,20 @@
         }
 
         .arrowsw_prev {
-            top: -30px;
+            top: -20px;
+        }
+
+        .arrowsw_next {
+            bottom: -20px;
         }
 
 
 
-    }
 
-    @media (max-width: 480px) {
 
-        .slick-prev,
-        .slick-next {
-            width: 40px;
-            height: 40px;
-        }
 
-        .slick-prev {
-            left: -30px;
-        }
 
-        .slick-next {
-            right: -30px;
+        .vertical-slider {
+            padding-top: 32px;
         }
     }
