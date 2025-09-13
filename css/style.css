@@ -386,17 +386,6 @@
     /* margin-top: 32px; */
 }
 
-.arrowsw_next,
-.arrowsw_prev {
-    position: absolute;
-    z-index: 1;
-    width: 280px;
-    border: 1px solid #FFFFFF33;
-    cursor: pointer;
-    transition: all .5s;
-}
-
-
 
 
 .contact {

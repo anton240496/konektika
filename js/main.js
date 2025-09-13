@@ -28,7 +28,7 @@ $(document).ready(function () {
         console.log('Запускаем слайдер (7+ слайдов)');
         $slider.slick({
             vertical: true,
-            verticalSwiping: true,
+            // verticalSwiping: true,
             slidesToShow: 7,
             slidesToScroll: 1,
             infinite: true,
