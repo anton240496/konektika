@@ -1,0 +1,30 @@
+.obol{
+    display: flex;
+    position: relative;
+}
+
+.obol_wap{
+/* min-width: 200% */
+
+
+}
+
+.polovin:last-child{
+    position: absolute;
+    min-width: 100%;
+    display: none;
+    background-color: #000;
+    left: 100%;
+    z-index: 1;
+    transition: all .5s ease;
+}
+
+.arrow_link{
+    display: none !important;
+}
+
+.polovin:last-child.pol_open{
+    display: flex;
+    left: 0;
+}
+

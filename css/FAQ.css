@@ -1,0 +1,80 @@
+.FAQ_contact {
+    margin-top: 48px;
+    display: flex;
+    gap: 48px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* вопрос ответ */
+.qust_list {
+    display: flex;
+    flex-direction: column;
+    gap: 96px;
+}
+.wapper_about .qust_list{
+    margin-bottom: 48px;
+}
+
+.qust_text {
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: all .5s ease;
+}
+
+.qust_text:hover,
+.qust_text:hover svg path {
+    color: #F6AE2D;
+    stroke: #F6AE2D;
+}
+
+.qust_text svg {
+    display: block;
+    min-width: 48px;
+    min-height: 48px;
+    transform: rotate(-45deg);
+    transition: all 1s ease;
+}
+
+.active .qust_text svg {
+    transform: rotate(0deg);
+}
+
+.qust_otvet {
+    overflow: hidden;
+    max-height: 0px;
+    transition: all 2s ease-in-out;
+}
+
+.active .qust_otvet {
+    max-height: 5000px;
+}
+
+@media (max-width: 890px) {
+    .FAQ_contact {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .qust_list {
+        gap: 72px;
+    }
+
+    .qust_text {
+        gap: 5px;
+    }
+
+    .qust_text svg {
+        min-width: 24px;
+        min-height: 24px;
+    }
+
+    .qust_text:hover,
+    .qust_text:hover svg path {
+        color: #fff;
+        stroke: #Ffff;
+    }
+}

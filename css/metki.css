@@ -1,0 +1,68 @@
+
+
+.sety_list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.sety_link {
+    cursor: pointer;
+}
+
+.sety_link svg path,
+.sety_link svg rect,
+.sety_link svg g {
+    transition: all .5s;
+}
+
+.sety_link:hover svg path,
+.sety_link:hover svg rect,
+.sety_link:hover svg g {
+    opacity: 1;
+    fill-opacity: 1;
+    transition: all .5s;
+}
+
+.panel_wap {
+    height: 100%;
+}
+
+.metki {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+    margin-top: 24px;
+    gap: 24px;
+}
+
+.sety_predl {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    opacity: .4;
+}
+
+.footer_carta_ip {
+    display: flex;
+    gap: 48px;
+    left: 0;
+    bottom: 0;
+}
+
+.footer_carta_ip_name {
+    color: #FFFFFF66;
+
+}
+@media (max-width: 1300px) {
+    .metki{
+        flex-direction: column;
+        align-items: baseline;
+    }
+}
+
+
+@media (max-width: 890px) {
+
+}

@@ -1,0 +1,48 @@
+.btn.b404_btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 0;
+}
+
+.o404main {
+    background-color: n;
+}
+
+.o404_inner {
+    width: 840px;
+    left: auto;
+    margin-right: -50%;
+    transform: translate(-0%, 50%);
+
+}
+
+.o404 .container {
+    margin: 0 0;
+}
+
+.o404_opisanie {
+    position: absolute;
+    top: 50%;
+    height: auto !important;
+}
+
+@media (max-width: 1100px) {
+
+    .o404_inner {
+        width: 650px;
+    }
+}
+
+
+@media (max-width: 890px) {
+    .o404_inner {
+        width: 80%;
+
+
+    }
+
+    .o404_opisanie {
+        width: auto;
+    }
+}

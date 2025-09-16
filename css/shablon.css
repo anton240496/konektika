@@ -1,0 +1,124 @@
+.container_shablon {
+    /* max-width: 840px;
+    margin: 0 auto; */
+    max-width: 65%;
+    margin: 0 60px;
+    padding: 0 0;
+}
+
+
+
+
+.shablon {
+    margin-top: 48px;
+}
+
+
+.container_shablon .main_inner {
+    display: block !important;
+    margin-right: 0 !important;
+    padding-bottom: 0;
+}
+
+.pr_section {
+    min-height: auto !important;
+}
+
+
+
+.spisokim_item {
+    display: flex;
+    gap: 24px;
+}
+
+.spisokol {
+    list-style-type: auto !important;
+}
+
+.spisok_im_img {
+    padding: 24px;
+    width: 48px;
+    height: 48px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    position: relative;
+}
+
+.spisok_im_img img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+.shablon_2432 {
+    font-size: 24px;
+    line-height: 32px;
+
+}
+
+.shablon_2028 {
+    font-size: 20px;
+    line-height: 28px;
+}
+
+.shablon_img {
+    width: 100%;
+
+}
+
+.container_shablon .opisanie {
+    border-right: none;
+    border-bottom: none;
+}
+
+
+
+
+@media (max-width: 998px) {
+    .container_shablon {
+        /* max-width: 840px; */
+        max-width: 550px;
+    }
+}
+
+@media (max-width: 890px) {
+
+    .container_shablon {
+        padding: 0 30px;
+        max-width: 100%;
+        margin: 0 0px;
+    }
+
+
+    .container_shablon .opisanie {
+        padding-bottom: 0px;
+    }
+
+    .shablon_2432 {
+        font-size: 18px !important;
+        line-height: 24px;
+    }
+
+    .shablon_2028 {
+        font-size: 14px !important;
+        line-height: 20px;
+    }
+
+
+
+    .shablon_img_cont {
+        margin: 0 -20px;
+        position: relative;
+        z-index: 5
+    }
+}
+
+@media (max-width: 440px) {
+
+    .shablon_img_cont {
+        margin-right: -20px;
+    }
+
+}

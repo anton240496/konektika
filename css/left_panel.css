@@ -1,0 +1,115 @@
+.panel_left {
+    position: absolute;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+    background-color: transparent;
+    width: 24px;
+    padding-top: 144px;
+    padding-bottom: 24px;
+    gap: 24px;
+    margin-left: 42px;
+    z-index: 4;
+}
+
+.panel_left_inner {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-direction: column;
+    height: 100%;
+    gap: 24px;
+    /* overflow-y: auto; */
+}
+
+.panel_left p {
+    writing-mode: sideways-rl;
+    display: block;
+    transform: rotate(180deg);
+    min-height: 207px;
+    display: flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.panel_left_polos {
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.2);
+
+    width: 2px;
+    margin: 0 auto;
+}
+
+
+.panel_left .sety_list {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.sety_link {
+    cursor: pointer;
+}
+
+.sety_link svg path,
+.sety_link svg rect,
+.sety_link svg g {
+    transition: all .5s;
+}
+
+.sety_link:hover svg path,
+.sety_link:hover svg rect,
+.sety_link:hover svg g {
+    opacity: 1;
+    fill-opacity: 1;
+    transition: all .5s;
+}
+
+
+@media (max-width: 890px) {
+
+    .panel_left {
+        margin-left: 0;
+        width: 100%;
+        height: auto;
+        bottom: 0;
+    }
+
+    .panel_left_inner {
+        height: auto;
+    }
+
+    .panel_left_polos {
+        height: 2px;
+        width: 100%;
+    }
+
+
+
+    .panel_left p {
+        writing-mode: horizontal-tb;
+        transform: rotate(0deg);
+        min-height: auto;
+        font-size: 14px;
+        text-align: center;
+        margin: 0 auto;
+    }
+
+        .sety_list {
+            flex-direction: row !important;
+            justify-content: space-evenly !important;
+            width: 100%;
+        }
+    }
+
+
+
+    @media (max-height: 650px) {
+        .sety_list {
+            flex-direction: row !important;
+        }
+
+    }

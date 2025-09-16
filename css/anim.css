@@ -1,0 +1,24 @@
+.container_shablon .main_text {
+  animation: bounce;
+
+  animation-duration: 2s;
+
+  visibility: visible;
+  animation-name: fadeInLeft;
+}
+
+.shablon .spisok_item,
+.shablon .opisanie_text,
+.qust_text {
+  visibility: visible;
+  animation: bounce;
+  animation-duration: 2s;
+  animation-name: fadeInRight;
+}
+
+.shablon_img {
+  visibility: visible;
+  animation: bounce;
+  animation-duration: 2s;
+  animation-name: fadeIn;
+}

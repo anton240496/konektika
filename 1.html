@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Счетчик лет компании</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #1a2a6c, #b21f1f, #fdbb2d);
+            color: #fff;
+            min-height: 200vh; /* Увеличил высоту для демонстрации прокрутки */
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 0;
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            text-align: center;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: #ff6b6b;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            margin: 10px;
+        }
+        
+        .btn:hover {
+            background: #ff8e8e;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        
+        .counters-section {
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 40px;
+            margin: 40px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+            min-height: 600px; /* Чтобы секция была большой */
+        }
+        
+        .counters-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+        
+        .counter-item {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            transition: transform 0.3s ease;
+        }
+        
+        .counter-item:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        .counter {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #ffd166;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+        
+        .counter-label {
+            font-size: 1.2rem;
+            color: #f1faee;
+        }
+        
+        .loading-bar-container {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 3px;
+            margin: 30px 0;
+            overflow: hidden;
+        }
+        
+        .loading-bar {
+            height: 100%;
+            width: 0;
+            background: linear-gradient(90deg, #ff9e9e, #ff6b6b);
+            border-radius: 3px;
+            transition: width 3s ease;
+        }
+        
+        .instructions {
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            padding: 20px;
+            margin: 40px 0;
+        }
+        
+        .instructions h3 {
+            margin-bottom: 15px;
+            color: #ffd166;
+        }
+        
+        .instructions code {
+            background: rgba(0, 0, 0, 0.3);
+            padding: 2px 6px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            padding: 20px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+        
+        .highlight {
+            color: #ffd166;
+            font-weight: bold;
+        }
+        
+        .scroll-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            z-index: 1000;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            .counter {
+                font-size: 3rem;
+            }
+            
+            .counters-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <div class="container">
+        <header>
+            <h1>Демонстрация счетчика лет компании</h1>
+            <p>Анимация запустится, когда вы прокрутите страницу до блока со счетчиками</p>
+        </header>
+        
+        <div class="hero">
+            <p>Наша компания была основана в <span class="founded-year highlight">2017</span> году и с тех пор мы успешно работаем на рынке, постоянно развиваясь и улучшая наши услуги.</p>
+            <p>Прокрутите вниз, чтобы увидеть анимированный счетчик, который покажет, сколько лет нашей компании.</p>
+            <!-- <a href="#about" class="btn" id="main-button">Узнать больше</a> -->
+        </div>
+        
+        <div class="instructions">
+            <h3>Как изменить год основания?</h3>
+            <p>Чтобы изменить год основания компании, просто отредактируйте значение в этом теге:</p>
+            <p><code>&lt;span class="founded-year highlight"&gt;2017&lt;/span&gt;</code></p>
+            <p>Замените 2017 на любой другой год, и счетчик автоматически пересчитает возраст компании.</p>
+            <button class="btn" id="change-year-btn">Изменить год на 2010</button>
+        </div>
+        
+        <div class="counters-section" id="about">
+            <!-- <div  id="scrollIndicator">Прокрутите до счетчиков</div> -->
+            <h2>Наши достижения за <span id="companyAge">0</span> <span id="yearsText">лет</span></h2>
+            <div class="loading-bar-container">
+                <div class="loading-bar"></div>
+            </div>
+            
+            <div class="counters-grid">
+                <div class="counter-item">
+                    <div class="counter" id="years-counter" data-target="0">0</div>
+                    <div class="counter-label">Лет на рынке</div>
+                </div>
+                
+                <div class="counter-item">
+                    <div class="counter" data-target="350">0</div>
+                    <div class="counter-label">Завершенных проектов</div>
+                </div>
+                
+                <div class="counter-item">
+                    <div class="counter" data-target="95">0</div>
+                    <div class="counter-label">Довольных клиентов</div>
+                </div>
+                
+                <div class="counter-item">
+                    <div class="counter" data-target="24">0</div>
+                    <div class="counter-label">Сотрудника</div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="btn" id="reset-button">Перезапустить анимацию</button>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Анимация запускается только один раз при первом появлении блока в области видимости</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Функция для получения года основания из HTML
+            function getFoundationYear() {
+                const foundedYearElement = document.querySelector('.founded-year');
+                return parseInt(foundedYearElement.textContent);
+            }
+
+            // Обновляем возраст компании
+            function updateCompanyAge() {
+                const foundationYear = getFoundationYear();
+                const currentDate = new Date();
+                let companyAge = currentDate.getFullYear() - foundationYear;
+
+                // Обновляем элемент с возрастом компании
+                const ageElement = document.getElementById('companyAge');
+                ageElement.textContent = companyAge;
+
+                // Формируем правильное окончание для слова "год"
+                const yearsTextElement = document.getElementById('yearsText');
+                yearsTextElement.textContent = getYearsText(companyAge);
+                
+                return companyAge;
+            }
+
+            // Функция для склонения слова "год" в зависимости от числа
+            function getYearsText(number) {
+                let lastDigit = number % 10;
+                let lastTwoDigits = number % 100;
+                
+                if (lastTwoDigits >= 11 && lastTwoDigits <= 19) {
+                    return 'лет';
+                } else if (lastDigit === 1) {
+                    return 'год';
+                } else if (lastDigit >= 2 && lastDigit <= 4) {
+                    return 'года';
+                } else {
+                    return 'лет';
+                }
+            }
+
+            // Инициализируем возраст компании при загрузке
+            updateCompanyAge();
+
+            // Анимация подсчета цифр о компании 
+            const counters = document.querySelectorAll('.counter');
+            const duration = 3000;
+            const frameRate = 60;
+            const totalFrames = Math.round(duration / (1000 / frameRate));
+
+            // Переменные для хранения состояния анимации
+            let animationIntervals = [];
+            let animationStarted = false; // Флаг, указывающий, была ли уже запущена анимация
+
+            // Функция сброса счетчиков
+            function resetCounters() {
+                counters.forEach(counter => {
+                    counter.innerText = '0';
+                });
+                document.querySelector('.loading-bar').style.width = '0';
+            }
+
+            // Функция для запуска анимации счетчиков
+            function startCountersAnimation() {
+                // Если анимация уже была запущена, не запускаем снова
+                // if (animationStarted) return;
+                
+                // Устанавливаем флаг, что анимация запущена
+                // animationStarted = true;
+                
+                // Останавливаем предыдущие анимации, если они есть
+                stopAnimation();
+
+                // Сбрасываем счетчики
+                resetCounters();
+
+                // Обновляем возраст компании
+                const companyAge = updateCompanyAge();
+                
+                // Устанавливаем вычисленное значение как data-target для первого счетчика
+                document.getElementById('years-counter').setAttribute('data-target', companyAge);
+
+                // Запускаем анимацию полосы загрузки
+                document.querySelector('.loading-bar').style.width = '100%';
+
+                // Запускаем анимацию каждого счетчика
+                counters.forEach(counter => {
+                    const target = parseInt(counter.getAttribute('data-target'));
+                    let current = 0;
+                    const increment = target / totalFrames;
+                    let frame = 0;
+
+                    function updateCounter() {
+                        if (frame < totalFrames) {
+                            current += increment;
+                            counter.innerText = Math.round(current);
+                            frame++;
+                            animationIntervals.push(requestAnimationFrame(updateCounter));
+                        } else {
+                            counter.innerText = target;
+                        }
+                    }
+
+                    // Задержка перед началом анимации для лучшего визуального эффекта
+                    const timeoutId = setTimeout(() => {
+                        animationIntervals.push(requestAnimationFrame(updateCounter));
+                    }, 0);
+
+                    animationIntervals.push(timeoutId);
+                });
+            }
+
+            // Функция остановки анимации
+            function stopAnimation() {
+                animationIntervals.forEach(interval => {
+                    if (typeof interval === 'number') {
+                        cancelAnimationFrame(interval);
+                    } else {
+                        clearTimeout(interval);
+                    }
+                });
+                animationIntervals = [];
+            }
+
+            // Улучшенная функция проверки видимости элемента
+            function isElementPartiallyInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                const windowHeight = (window.innerHeight || document.documentElement.clientHeight);
+                const windowWidth = (window.innerWidth || document.documentElement.clientWidth);
+
+                const vertInView = (rect.top <= windowHeight) && ((rect.top + rect.height) >= 0);
+                const horInView = (rect.left <= windowWidth) && ((rect.left + rect.width) >= 0);
+
+                return (vertInView && horInView);
+            }
+
+            // Запуск анимации при загрузке, если блок виден
+            const countersSection = document.getElementById('about');
+            // const scrollIndicator = document.getElementById('scrollIndicator');
+
+            // Функция для проверки видимости и обновления индикатора
+            function checkVisibility() {
+                const isVisible = isElementPartiallyInViewport(countersSection);
+                
+                if (isVisible && !animationStarted) {
+                    startCountersAnimation();
+                } 
+            }
+
+            // Проверяем видимость при загрузке
+            checkVisibility();
+
+            // Запуск проверки видимости при скролле
+            window.addEventListener('scroll', checkVisibility);
+
+            // Плавная прокрутка для кнопки
+            // document.getElementById('main-button').addEventListener('click', function (e) {
+            //     e.preventDefault();
+            //     const targetId = this.getAttribute('href');
+            //     const targetSection = document.querySelector(targetId);
+
+            //     window.scrollTo({
+            //         top: targetSection.offsetTop - 20,
+            //         behavior: 'smooth'
+            //     });
+            // });
+
+            // Кнопка для повторного запуска анимации
+            document.getElementById('reset-button').addEventListener('click', function () {
+                // Сбрасываем флаг анимации
+                animationStarted = false;
+                startCountersAnimation();
+            });
+            
+            // Кнопка для изменения года основания
+            document.getElementById('change-year-btn').addEventListener('click', function () {
+                const foundedYearElement = document.querySelector('.founded-year');
+                foundedYearElement.textContent = '2010';
+                
+                // Сбрасываем флаг анимации
+                animationStarted = false;
+                
+                // Обновляем возраст компании
+                updateCompanyAge();
+                
+                // Перезапускаем анимацию
+                startCountersAnimation();
+            });
+        });
+    </script>
+</body>
+</html>

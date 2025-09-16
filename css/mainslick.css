@@ -1,0 +1,178 @@
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+
+    }
+
+
+
+    html,
+    body {
+        height: 100%;
+        font-family: 'Arial', sans-serif;
+        /* overflow-x: hidden; */
+    }
+
+    .slider-container {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .vertical-slider {
+        width: 80%;
+        max-width: 800px;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        width: 100%;
+        gap: 50px;
+    }
+
+    .slid_in {
+        display: grid !important;
+        grid-template-columns: 60% auto;
+    }
+
+    .slid_in .opisanie {
+        border-right: 1px solid #FFFFFF33;
+    }
+
+    .vertical-slider ul div {
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .slide {
+        padding: 25px 0;
+        transition: all 0.5s ease;
+        min-height: 80px !important;
+    }
+
+    /* Автоматическая высота по контенту */
+    .slide-content {
+        height: auto;
+        min-height: 100px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    .slide-title {
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #333;
+        margin-bottom: 10px;
+    }
+
+    .slide-text {
+        font-size: 1rem;
+        line-height: 1.6;
+        color: #666;
+    }
+
+    .arrowsw_next,
+    .arrowsw_prev {
+        position: absolute;
+        z-index: 1;
+        width: 280px;
+        border: 1px solid #FFFFFF33;
+        cursor: pointer;
+        transition: all .5s;
+    }
+
+
+
+
+
+
+    .arrowsw_prev {
+        top: -30px;
+        transform: rotate(180deg);
+    }
+
+
+    .arrowsw_next {
+        bottom: -30px;
+
+
+    }
+
+    .arrowsw_next svg,
+    .arrowsw_prev svg {
+        margin: 0 auto;
+        display: flex;
+    }
+
+
+    .arrowsw_next svg path,
+    .arrowsw_prev svg path {
+        transition: all .5s;
+    }
+
+    .arrowsw_next:hover svg path,
+    .arrowsw_prev:hover svg path {
+        stroke: #FFFFFF33;
+    }
+
+
+    .arrowsw_next:hover,
+    .arrowsw_prev:hover {
+        border: 1px solid #fff;
+    }
+
+
+
+
+
+
+    @media (max-width: 1100px) {
+
+
+        .swiper_cont {
+            width: 100%;
+        }
+
+        .slide:first-child,
+        .slick-current {
+            padding-top: 0;
+        }
+
+        .slid_in .opisanie {
+            border-right: none;
+            padding-bottom: 32px;
+            border-bottom: 1px solid #FFFFFF33;
+        }
+
+        .slid_in {
+            display: flex !important;
+            flex-direction: column;
+        }
+
+        .vertical-slider {
+            height: auto;
+            display: block;
+        }
+
+        .arrowsw_prev {
+            top: -20px;
+        }
+
+        .arrowsw_next {
+            bottom: -20px;
+        }
+
+
+
+
+
+
+
+        .vertical-slider {
+            padding-top: 32px;
+        }
+    }
